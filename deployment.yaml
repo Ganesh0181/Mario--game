@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mario-deployment
+  namespace: super-mario
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: mario
+  template:
+    metadata:
+      labels:
+        app: mario
+    spec:
+      containers:
+      - name: mario-container
+        image: dushyantkumark/mario-game:latest
+        ports:
+        - containerPort: 80
